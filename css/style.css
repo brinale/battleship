@@ -120,7 +120,7 @@ letter-spacing: 1px;
     display: inline-block;
     position: absolute;
     bottom: -27px;
-    left: -123px;
+    left: -130px;
     width: 355px;
     height: 1px;
     position: absolute;
@@ -131,6 +131,10 @@ letter-spacing: 1px;
 font-size: 12px;
 line-height: 16px;
 color: #198FE6;
+transition: 0.3s linear;
+}
+.forget-password:hover{
+    color:#61e968;
 }
 .modal{
     position: fixed;
