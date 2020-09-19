@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морской бой - онлайн-игра</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-info">
+        <div class="container">
+            <div class="entry-area">
+                <h1 class="entry-area_header">Морской бой</h1>
+                <div class="entry-area_block">
+                    <form action="" class="entry-area_block--login">
+                        <input type="text" class="input log-in" placeholder="Логин">
+                    </form>
+                    <form action="" class="entry-area_block--password">
+                        <input type="password" class="input password" placeholder="Пароль">
+                    </form>
+                    <button class="button button_log-in">Вход</button>
+                    <a href="./forget-pas.html" class="entry-area_block--forget-password"><span class="forget-password">Забыли пароль?</span></a>
+                    <button class="button button_sign-up reg-open">Регистрация</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 class="modal-title">Регистрация</h2>
+                <button class="close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="modal_name">
+                    <input type="text" class="input name" placeholder="Имя">
+                </form>
+                <form action="" class="modal_surname">
+                    <input type="text" class="input surname" placeholder="Фамилия">
+                </form>
+                <form action="" class="modal_login">
+                    <input type="text" class="input login" placeholder="Логин">
+                </form>
+                <form action="" class="modal_secret-word">
+                    <input type="text" class="input secret-word" placeholder="Кодовое слово">
+                </form>
+                <form action="" class="modal_password">
+                    <input type="password" class="input password" placeholder="Пароль">
+                </form>
+                <button class="button button_sign-up">Регистрация</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
