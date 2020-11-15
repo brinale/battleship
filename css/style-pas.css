@@ -53,10 +53,10 @@ body{
     margin: 0;
     margin-bottom: 40px;
     font-family: Roboto;
-font-weight: bold;
-font-size: 28px;
-line-height: 42px;
-color: #000000;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 42px;
+    color: #000000;
 }
 .input{
     width: 480px;
@@ -67,7 +67,7 @@ color: #000000;
     padding-bottom: 12px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: #8D8C8C;
+    color: #535353;
     margin-bottom: 30px;
     outline: none;
 }

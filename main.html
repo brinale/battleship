@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морской бой - Добро пожаловать</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="./css/style-main.css">
+</head>
+<body>
+    <div class="container">
+    <header class="header">
+            <div class="logo">
+                <img src="img/anchor.svg" alt="Logo Picture" class="logo-pic" width="30px" height="30px">
+                <span class="logo-text">Морской бой</span>
+            </div>
+            <div class="buttons">
+                <span class="mes about-system">О системе</span>
+                <span class="mes developers">Разработчики</span>
+                <button class="button rules">Правила игры</button>
+                <button class="button rating">Рейтинг</button>
+                <button class="button exit">Выход</button>
+            </div>
+    </header>
+    <div class="main-part">
+        <div class="new-game-part">
+            <span class="part-title game-title">Новая игра</span>
+            <form action="" class="new-game-form">
+                <div class="choose choose-enemy">
+                    <span class="select-title enemy-title">Оппонент:</span>
+                    <select size="1" class="select select-enemy">
+                        <option selected>Компьютер</option>
+                        <option>Другой игрок</option>
+                    </select>
+                </div>
+                <div class="choose choose-position">
+                    <span class="select-title position-title">Расстановка:</span>
+                    <select size="1" class="select select-position">
+                        <option selected>Ручная</option>
+                        <option>Автоматическая</option>
+                    </select>
+                </div>
+                <div class="choose choose-strategy">
+                    <span class="select-title strategy-title">Стратегия<br>расстановки:</span>
+                    <select size="1" class="select select-strategy">
+                        <option selected>"Берега"</option>
+                        <option>"Половина поля"</option>
+                    </select>
+                </div>
+                <button class="button new-game">Начать игру</button>
+            </form>
+        </div>
+        <div class="download-game-part">
+            <span class="part-title download">Загрузка игры</span>
+            <button class="button choose-file">Выберите игру</button>
+            <button class="button download-game">Загрузить игру</button>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
