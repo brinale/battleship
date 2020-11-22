@@ -23,6 +23,7 @@ body{
     margin: auto;
     padding-top: 25px;
 }
+
 .header{
     display: flex;
     align-items: center;
@@ -39,6 +40,7 @@ body{
     color: #FFFFFF;
     margin-left: 14px;
 }
+
 .button{
     margin-left: 15px;
     padding: 8px 20px;
@@ -60,105 +62,135 @@ background-color:#FAB912;
     cursor: pointer;
     transition: 0.3s;
 }
-.exit{
-    background: #198FE6;
-}
-.exit:hover{
-    background-color: #5d23c9;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.mes{
-    margin-left: 25px;
-    font-family: Roboto;
-font-weight: bold;
-font-size: 16px;
-line-height: 24px;
-color: #FFFFFF;
-letter-spacing: 1px;
-}
-.mes:hover{
-    color: #FAB912;
-    cursor: pointer;
-    transition: 0.3s;
+.start{
+    display: none;
+
+
+    margin-top: 70px;
+    margin-left: 600px;
 }
 .main-part{
+    display: flex;
+    justify-content: space-evenly;
     margin-top: 100px;
+}
+.board{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-.download-game-part{
-    margin-left: 100px;
+.numbers{
+    margin-top: 25px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.part-title{
-    text-align: center;
+.number{
+    font-family: Roboto;
+    font-size: 23px;
+    margin-bottom: 5px;
+    color:white;
+}
+.block-alphabet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Roboto;
+}
+.alphabet{
+    margin-left: 12px;
+}
+.alpha{
+    font-family: Roboto;
+    font-size: 23px;
+    margin-right: 11px;
+    color:white;
+}
+.play-board{
+    table-layout: fixed;
+    border-collapse:collapse;
+    border: 3px solid #b3daff;
+}
+.table__item{
+    border: 1px solid white;
+    border-collapse:collapse;
+    height: 30px;
+    width: 30px;
+}
+.play-text{
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+.title{
     margin: 0;
     font-family: Roboto;
-font-weight: bold;
-font-size: 36px;
-line-height: 42px;
-color: #FFFFFF;
-letter-spacing: 1px;
+    font-size: 23px;
+    color:white;
+    letter-spacing: 2px;
 }
-.game-title{
-    display: block;
-    margin-bottom: 83px;
-}
-.choose-file{
-    margin-bottom: 150px;
-}
-.download{
-    margin-bottom: 150px;
-}
-.select-title{
-    margin-right: 20px; 
+.play-desc{
     font-family: Roboto;
-    font-weight: normal;
     font-size: 16px;
-    line-height: 24px;
-    color: #FFFFFF;
-    letter-spacing: 0.5px;
+    color:rgb(194, 194, 194);
+    letter-spacing: 1px;
 }
-.choose-strategy{
+.ships{
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
-.enemy-title{
-    margin-right: 44px;
+.two-ships{
+    display: flex;
 }
-.strategy-title{
-    margin-right: 25px;
+.three-ships{
+    display: flex;
 }
-.choose{
-    margin-bottom: 20px;
+.four-ships{
+    display: flex;
 }
-.new-game{
-    margin-top: 85px;
-    margin-left: 90px;
+.ship{
+    margin-bottom: 30px;
+    margin-right: 50px;
+    height: 30px;
+    border:1px solid white;
+    background-color: rgb(178, 219, 226);
 }
-.new-game-part:after{
-    content:"";
-    display: inline-block;
-    position: absolute;
-    top:380px;
-    left: 540px;
-    width: 500px;
-    height: 1px;
-    transform: rotate(90deg);
-    background-color:#D1CFCF;
+.one-ship{
+    width: 120px;
 }
-.select{
-    width: 180px;
-    outline: none;
-    padding: 5px 10px;
+.two-ship{
+    width: 90px;
+}
+.three-ship{
+    width: 60px;
+}
+.four-ship{
+    width: 30px;
+}
+
+
+.boards-text{
+    margin-top: 30px;
+    margin-left: 50px;
+    text-align: center;
     font-family: Roboto;
-    font-weight: normal;
     font-size: 16px;
-    line-height: 24px;
+    color:white;
+    letter-spacing: 1px;
+}
+.yours-board{
+    margin-right: 420px;
+}
+
+
+
+
+
+
+
+
+
+.right-part{
+    display: none;
 }
 
 
@@ -176,10 +208,13 @@ letter-spacing: 1px;
 }
 .modal-body{
     margin-bottom: 52px;/*внешний отступ*/
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
 }
 .modal-dialog{
     max-width: 500px;
-    height: 560px;
+    height: 600px;
     width: 95%;
     background: #FFFFFF;
     border-radius: 10px;
@@ -209,35 +244,25 @@ letter-spacing: 1px;
     outline: none;
     cursor: pointer;
 }
-.modal .input{
-    width: 512px;
+.rating-column{
+    display: flex;
+    flex-direction: column;
 }
-.modal .button_sign-up{
-    margin: 0;
-    margin-top: 10px;
-    margin-left: 90px;
-}
-.modal-subtitle{
-    text-align: center;
+.name{
+    margin-bottom: 15px;
     font-family: Roboto;
     font-style: normal;
-    font-size: 20px;
-    line-height: 28px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
 }
-.devs{
-    margin-top: 70px;
-    text-align: left;
+.rate{
+    margin-bottom: 15px;
     font-family: Roboto;
     font-style: normal;
-    font-size: 16px;
-    line-height: 25px;
-}
-.date{
-    display: block;
-    margin-top: 50px;
-    text-align: center;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 25px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
 }

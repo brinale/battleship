@@ -6,5 +6,5 @@ function toggleModal(){
     modal.classList.toggle("is-open");
 }
 
-const button_reg=document.querySelector(".reg-open");
-button_reg.addEventListener('click',toggleModal);
+const button_dev=document.querySelector(".developers");
+button_dev.addEventListener('click',toggleModal);
