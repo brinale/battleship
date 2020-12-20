@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Морской игра - справка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style-info.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-group">
+        <div class="logo">
+            <img src="img/anchor.svg" alt="Logo Picture" class="logo-pic" width="30px" height="30px">
+            <span class="logo-text">Морской бой</span>
+        </div>
+        <button class="exit">Назад</button>
+    </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container">
+            <h1 class="title">Справка автоматизированной системы «Игра «Морской бой»</h1>
+            <ul class="content"> Содержание:
+                <a href="#intro" class="link"><li class="content-item" >Введение</li></a>
+                <a href="#auth" class="link"><li class="content-item">Авторизация, регистрация, восстановление пароля</li></a>
+                <a href="#start" class="link"><li class="content-item">Начало игры</li></a>
+                <a href="#place" class="link"><li class="content-item">Расстановка кораблей, Рейтинг, Разработчики, Правила игры и информация о системе</li></a>
+                <a href="#play" class="link"><li class="content-item">Ведение боя</li></a>
+                <a href="#end" class="link"><li class="content-item">Завершение игры</li></a>
+                <a href="#exit" class="link"><li class="content-item">Выход из системы</li></a>
+            </ul>
+            <div class="page-body">
+                <div class="block introduction" id="intro">
+                    <h2 class="block-title introduction-title">Введение</h2>
+                    <p class="block-text introduction-text">Автоматизированная система «Игра «Морской бой» может быть использована в целях автоматизации процесса игры. 
+                        Полностью автоматизирует не только процесс игры, но и расстановку кораблей и генерацию рейтинга игры.
+                    </p>
+                    <p class="block-text introduction-text">
+                        Программа использует базу данных PostgreSQL (требует предустановления сервера PostgreSQL) и любой доступный браузер. 
+                        Программа совместима с Windows XP и Windows Vista. 
+                        Системный требования: 50 Mb оперативной памяти, 5 Mb жесткого диска.
+                    </p>
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+                <div class="block auth" id="auth">
+                    <h2 class="block-title auth-title">Авторизация, запуск программы</h2>
+                    <p class="block-text auth-text">При запуске программной системы появляется окно авторизации, представленное на рисунке. 
+                        В поля логин и пароль необходимо ввести данные зарегистрированного пользователя и нажать кнопку Вход.
+                    </p>
+                    <img src="./img/auth.jpg" alt="auth image" class="block-image">
+                    <p class="block-text auth-text">
+                        Если пользователь не зарегистрирован, то ему необходимо нажать кнопку Регистрация и заполнить форму, представленную на рисунке: ввести имя, фамилию, логин, кодовое слово и пароль.
+                    </p>
+                    <img src="./img/reg.jpg" alt="auth image" class="block-image">
+                    <p class="block-text auth-text">
+                        Если пользователь забыл пароль, то он может нажать кнопку «Забыли пароль?» и заполнить форму (ввести логин, кодовое слово и новый пароль) для смены пароля.
+                    </p>
+                    <img src="./img/change.jpg" alt="auth image" class="block-image">
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+                <div class="block start" id="start">
+                    <h2 class="block-title start-title">Начало игры</h2>
+                    <p class="block-text start-text">
+                        После авторизации откроется страница главного экрана, представленная на рисунке. 
+                        Она предназначена для начала игры. 
+                        На данной странице пользователь может начать новую игру, выбрав тип оппонента, способ расстановки кораблей и, в случае выбора автоматической расстановки, стратегию расстановки, либо загрузить предыдущую игру, выбрав файл на компьютере. 
+                        Также пользователь имеет возможность просмотреть рейтинг, правила игры, а также информацию о системе и о разработчиках.
+                    </p>
+                    <img src="./img/start.jpg" alt="start image" class="block-image">
+                    <p class="block-text start-text">
+                        При нажатии на кнопку «Рейтинг» должно появиться окно с 10 лучшими игроками, представленный на рисунке.
+                    </p>
+                    <img src="./img/rating.jpg" alt="start image" class="block-image">
+                    <p class="block-text start-text">
+                        Пользователю должен быть доступен пункт меню «Разработчики», при нажатии на который откроется окно с краткой информацией о разработчиках. 
+                    </p>
+                    <img src="./img/devs.jpg" alt="start image" class="block-image">
+                    <p class="block-text start-text">
+                        При нажатии на кнопку «Правила игры» откроется модальное окно с описанием.
+                    </p>
+                    <img src="./img/rules.jpg" alt="start image" class="block-image">
+                    <p class="block-text start-text">
+                        При нажатии на кнопку «О системе» откроется html-страница в браузере. 
+                    </p>
+                    <img src="./img/sys.jpg" alt="start image" class="block-image">
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+                <div class="block place" id="place">
+                    <h2 class="block-title place-title">Расстановка кораблей</h2>
+                    <p class="block-text place-text">
+                        Страница расстановки кораблей представлена на рисунке, где пользователь может перетащить корабли на поле, разместить их и повернуть щелчком правой кнопки мыши. 
+                        Также пользователю всегда доступны кнопки «Рейтинг», «О системе», «Разработчики», «Правила игры» и «Выход». 
+                        После успешной расстановки кораблей пользователь должен нажать на кнопку «Начать игру» для начала игры.
+                    </p>
+                    <img src="./img/start-game.jpg" alt="start image" class="block-image">
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+                <div class="block play" id="play">
+                    <h2 class="block-title play-title">Ведение боя</h2>
+                    <p class="block-text play-text">
+                        Прототип страницы ведения игры представлен на рисунке, где пользователь сможет щелчком правой кнопки мыши по клетке поля противника «выстреливать» до тех пор, пока не «потопит» все корабли противника, или пока противник не потопит все его корабли. 
+                        Также пользователю всегда доступны кнопки «Рейтинг», «О системе», «Разработчики», «Правила игры» и «Выход».
+                    </p>
+                    <img src="./img/start-game.jpg" alt="start image" class="block-image">
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+                <div class="block end-game" id="end">
+                    <h2 class="block-title end-title">Завершение игры</h2>
+                    <p class="block-text end-text">
+                        После завершения игры должно появиться сообщение, содержащее информацию о выигрыше или проигрыше пользователя, количестве заработанных баллов и кнопки для начала новой игры или выхода из игры.
+                    </p>
+                    <img src="./img/start-game.jpg" alt="start image" class="block-image">
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+                <div class="block exit-block" id="exit">
+                    <h2 class="block-title exit-title">Выход из системы</h2>
+                    <p class="block-text exit-text">
+                        Для выхода из системы пользователю необходимо кликнуть по кнопке Выход и система переадресует пользователя на страницу авторизации.
+                    </p>
+                    <button class="up" onclick="topFunction()">В начало</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/info.js"></script>
+</body>
+</html>

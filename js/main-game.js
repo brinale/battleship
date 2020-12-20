@@ -1,10 +1,49 @@
-const modal=document.querySelector(".modal");
-const close=document.querySelector(".close");
-close.addEventListener('click',toggleModal);
+const exitButton=document.querySelector(".exit");
 
-function toggleModal(){
-    modal.classList.toggle("is-open");
-}
+const ships=document.querySelectorAll(".ship");
+const userSquares=document.querySelectorAll(".player_item");
+const displayGrid=document.querySelector(".ships");
 
 const button_rating=document.querySelector(".rating");
-button_rating.addEventListener('click',toggleModal);
+const modalRat=document.querySelector(".modal-rating");
+const closeRat=document.querySelector(".close-rating");
+
+const button_system=document.querySelector(".about-system");
+
+const button_rules=document.querySelector(".rules");
+const modalRules=document.querySelector(".modal__game-rules");
+const closeRules=document.querySelector(".close__game-rules");
+
+const modalDev=document.querySelector(".modal-dev");
+const closeDev=document.getElementById("close-dev");
+const button_dev=document.querySelector(".developers");
+
+const button_NewGame=document.querySelectorAll(".new-game");
+
+
+function toggleModal(m){
+    m.classList.toggle("is-open");
+}
+
+function openMain(){
+    window.close();
+    window.open("index.html");
+}
+function openGame(){
+    window.close();
+    window.open("game.html");
+}
+function openSys(){
+    window.close();
+    window.open("info.html");
+}
+
+button_NewGame.forEach(button => button.addEventListener('click', openGame));
+exitButton.addEventListener('click', openMain);
+button_rules.addEventListener('click',()=>toggleModal(modalRules));
+closeRules.addEventListener('click', () => toggleModal(modalRules));
+button_dev.addEventListener('click',()=>toggleModal(modalDev));
+closeDev.addEventListener('click', () => toggleModal(modalDev));
+button_system.addEventListener('click',openSys);
+button_rating.addEventListener('click', ()=>toggleModal(modalRat));
+closeRat.addEventListener('click',()=>toggleModal(modalRat));

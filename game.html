@@ -17,12 +17,14 @@
                     <span class="logo-text">Морской бой</span>
                 </div>
                 <div class="buttons">
+                    <span class="mes about-system">О системе</span>
+                    <span class="mes developers">Разработчики</span>
                     <button class="button rules">Правила игры</button>
                     <button class="button rating">Рейтинг</button>
                     <button class="button exit">Выход</button>
                 </div>
         </header>
-        <div class="main-part">
+       <!-- <div class="main-part">
             <div class="board">
             <div class="numbers">
                 <span class="number">1</span>
@@ -49,152 +51,192 @@
                     <span class="alpha">И</span>
                     <span class="alpha">К</span>
                 </div>
-                <table class="play-board">
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                        <td class="table__item"></td>
-                    </tr>
-                </table>
+                <div class="field field-human play-board">
+                    <div class="field-square">
+                    <div id="field_human" class="ships"></div></div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                    <div class="table__row">
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                        <div class="table__item player_item"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="right-part">
+        </div>-->
+        <!--<div class="right-part">
+            <div id="instruction" class="instruction">
+            <div id="type_placement" class="type-placement-box">
+                1. <span class="link" data-target="random">Случайным образом</span><br>
+                2. <span class="link" data-target="manually">Методом перетаскивания.</span>
+            </div>
             <div class="play-text">
                 <span class="title">Разместите корабли</span>
                 <p class="play-desc">Перетащите на поле и кликните, чтобы перевернуть.</p>
-            </div>
+                <p class="play-desc" id="ships_collection"></p>
+            </div></div>
             <div class="ships">
-                <div class="one-ship ship"></div>
-                <div class="two-ships">
-                    <div class="two-ship ship"></div>
-                    <div class="two-ship ship"></div>
+                <ul class="initial-ships" hidden>
+                    <li><div class="one-ship fourdeck ship" id="fourdeck1" >
+                    <div class="one-ship__1 block"></div>
+                    <div class="one-ship__2 block"></div>
+                    <div class="one-ship__3 block"></div>
+                    <div class="one-ship__4 block"></div>
+                    </div></li>
+                    <div class="two-ships">
+                        <li><div class="two-ship ship tripledeck tripledeck1" id="tripledeck1" >
+                        <div class="two-ship__1 block"></div>
+                        <div class="two-ship__2 block"></div>
+                        <div class="two-ship__3 block"></div>
+                    </div></li>
+                    <li><div class="two-ship ship tripledeck tripledeck2" id="tripledeck2" >
+                        <div class="two-ship__1 block"></div>
+                        <div class="two-ship__2 block"></div>
+                        <div class="two-ship__3 block"></div>
+                    </div></li>
                 </div>
                 <div class="three-ships">
-                    <div class="three-ship ship"></div>
-                    <div class="three-ship ship"></div>
-                    <div class="three-ship ship"></div>
-                </div>
+                    <li><div class="three-ship ship doubledeck" draggable="true" id="doubledeck1">
+                        <div class="three-ship__1 block"></div>
+                        <div class="three-ship__2 block"></div>
+                    </div></li>
+                    <li><div class="three-ship ship doubledeck doubledeck2" draggable="true" id="doubledeck2">
+                        <div class="three-ship__1 block"></div>
+                        <div class="three-ship__2 block"></div>
+                    </div></li>
+                    <li><div class="three-ship ship doubledeck doubledeck3" draggable="true" id="doubledeck3">
+                        <div class="three-ship__1 block"></div>
+                        <div class="three-ship__2 block"></div>
+                    </div>
+                </div></li>
                 <div class="four-ships">
-                    <div class="four-ship ship"></div>
-                    <div class="four-ship ship"></div>
-                    <div class="four-ship ship"></div>
-                    <div class="four-ship ship"></div>
+                    <li><div class="four-ship ship singledeck" draggable="true" id="singledeck1">
+                        <div class="four-ship__1 block"></div>
+                    </div></li>
+                    <li><div class="four-ship ship singledeck singledeck2" draggable="true" id="singledeck2">
+                        <div class="four-ship__1 block"></div>
+                    </div></li>
+                    <li><div class="four-ship ship singledeck singledeck3" draggable="true" id="singledeck3">
+                        <div class="four-ship__1 block"></div>
+                    </div></li>
+                    <li><div class="four-ship ship singledeck singledeck4" draggable="true" id="singledeck4">
+                        <div class="four-ship__1 block"></div>
+                    </div></li>
                 </div>
+            </ul>
         </div>
         </div>
         <div class="enemy-part">
@@ -224,144 +266,206 @@
                         <span class="alpha">И</span>
                         <span class="alpha">К</span>
                     </div>
-                    <table class="play-board">
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                        <tr class="table__row">
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                            <td class="table__item"></td>
-                        </tr>
-                    </table>
+                    <div class="field field-computer play-board">
+                        <div id="field_computer" class="ships"></div>
+                         <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                        <div class="table__row">
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                            <div class="table__item"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
+        </div>-->
+
+
+        <div id="matrix" style="position: fixed; left:20px; top:50px;"></div>
+<div class="wrap">
+	<div class="battlefield">
+		<div id="text_top" class="flex text-top">Расстановка кораблей</div>
+		<div class="flex outer">
+			<!-- playing field human -->
+			<div class="field field-human">
+				<div id="field_human" class="ships"></div>
+			</div>
+			<!-- /playing field human -->
+
+			<!-- playing field computer -->
+			<div class="field field-computer" hidden>
+				<div id="field_computer" class="ships"></div>
+			</div>
+			<!-- /playing field computer -->
+
+			<!-- instruction -->
+			<div id="instruction" class="instruction">
+				<div id="type_placement" class="type-placement-box">
+					1. <span class="link" data-target="random">Случайным образом</span><br>
+					2. <span class="link" data-target="manually">Методом перетаскивания.</span>
+				</div>
+				<div id="ships_collection" class="ships-collection" hidden>
+                    <span class="title">Разместите корабли</span>
+					<p class="play-desc">Перетащите корабли на поле и кликните, чтобы перевернуть.</p>
+				</div>
+			</div>
+			<!-- /instruction -->
+		</div>
+		<!--<span id="play" class="btn-play" data-hidden="true">Играть</span>
+		<div id="service_text" class="service-text"></div>
+		<span id="newgame" class="btn-play btn-newgame" data-hidden="true">Продолжить</span>-->
+	</div>
+</div>
+
+<ul class="initial-ships" hidden>
+	<li>
+		<div id="fourdeck1" class="ship fourdeck"></div>
+		<div id="tripledeck1" class="ship tripledeck tripledeck1"></div>
+		<div id="tripledeck2" class="ship tripledeck tripledeck2"></div>
+	</li>
+	<li>
+		<div id="doubledeck1" class="ship doubledeck"></div>
+		<div id="doubledeck2" class="ship doubledeck doubledeck2"></div>
+		<div id="doubledeck3" class="ship doubledeck doubledeck3"></div>
+	</li>
+	<li>
+		<div id="singledeck1" class="ship singledeck"></div>
+		<div id="singledeck2" class="ship singledeck singledeck2"></div>
+		<div id="singledeck3" class="ship singledeck singledeck3"></div>
+		<div id="singledeck4" class="ship singledeck singledeck4"></div>
+	</li>
+</ul>
+
+<button class="button start btn-play" id="play" data-hidden="true">Начать игру</button>
+<button class="button newgame" id="newgame" data-hidden="true">Продолжить</button>
+
         <div class="boards-text">
             <span class="board-title yours-board">Ваше поле</span>
-            <span class="board-title">Поле противника</span>
+            <span class="board-title enemy-board">Поле противника</span>
+            <div id="service_text" class="service-text"></div>
+            <div id="text_top" class="flex text-top"></div>
         </div>
-        <button class="button start">Начать игру</button>
+    
 
-
-        <div class="modal">
+        <div class="modal modal-rating">
             <div class="modal-dialog">
                 <div class="modal-header">
                     <h2 class="modal-title">Рейтинг</h2>
-                    <button class="close">&times;</button>
+                    <button class="close close-rating">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="rating-column">
@@ -391,7 +495,57 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal modal-dev">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h2 class="modal-title">Разработчики</h2>
+                    <button class="close" id="close-dev">&times;</button>
+                </div>
+                <div class="modal-body body-dev">
+                    <h3 class="modal-subtitle">Самарский университет</h3>
+                    <h3 class="modal-subtitle">Лабораторный практикум по дисциплине “Технологии программирования”<br>Игра “Морской бой”</h3>
+                    <p class="devs">Разработчики:<br>студенты группы 6401-090301D<br>Белоусова А.Л.,<br>Белоусова В.Л.,<br>Чистяков Д.С.</p>
+                    <span class="date">Самара 2020</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal modal-system">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h2 class="modal-title">О системе</h2>
+                    <button class="close close-system">&times;</button>
+                </div>
+                <div class="modal-body system-body">
+                <p class="system-text"><b>Объект автоматизации:</b> игра «Морской бой»<br><br>
+                    <b>Виды автоматизируемой деятельности:</b><br>
+                    − процесс ручной расстановки кораблей;<br>
+                    − процесс автоматической расстановки кораблей;<br>
+                    − процесс сохранения расстановки кораблей на компьютер;<br>
+                    − процесс ведения боя;<br>
+                    − процесс формирования рейтинга игроков;<br>
+                    − процесс визуализации игры «Морской бой».<br><br>
+                    <b>Количество игроков:</b>  2</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal modal__game-rules">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h2 class="modal-title">Правила игры</h2>
+                    <button class="close close__game-rules">&times;</button>
+                </div>
+                <div class="modal-body gamerules-body">
+                    <p class="rules-text">В автоматизированной системе «Игра «Морской бой» игрок сможет совершить ход, кликнув левой кнопкой мыши по клетке, расположенной на поле противника.<br><br>
+                        При удачном выстреле по кораблю противника на соответствующей клетке вражеского поля ставится крестик и производится повторный выстрел, при неудачном выстреле в соответствующей клетке ставится точка, и ход переходит к противнику.<br><br>
+                        Игра будет продолжаться до тех пор, пока один из игроков не «потопит» все корабли противника.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./js/main-game.js"></script>
+    <script src="./js/game.js"></script>
 </body>
 </html>

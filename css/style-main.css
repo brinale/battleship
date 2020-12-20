@@ -17,6 +17,10 @@
 }
 body{
     background-color: #2A374C;
+    background-image: url(../img/bg-main1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -20px center left;
 }
 .container{
     max-width: 1280px;
@@ -240,4 +244,101 @@ letter-spacing: 1px;
     font-style: normal;
     font-size: 16px;
     line-height: 25px;
+}
+
+.rating-column{
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    margin-bottom: 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+}
+.rate{
+    margin-bottom: 15px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+}
+
+.rate-body{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 45px;
+}
+
+.input__wrapper {
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+    text-align: center;
+    margin-bottom: 135px;
+}
+
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.input__file-button-text {
+    font-family: Roboto;
+    font-style: normal;
+}
+
+.input__file-button {
+    width: 100%;
+    max-width: 175px;
+    height: 40px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    letter-spacing: 1px;
+    background-color:#FAB912;
+    color:white;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 47px;
+}
+.input__file-button:hover{
+    background-color: #df884f;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.select:hover{
+    cursor: pointer;
+}
+
+.select-option, .select{
+    font-family: Roboto;
+    font-style: normal;
+}
+
+.system-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 17px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.rules-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 17px;
+    text-align: left;
+    line-height: 30px;
 }

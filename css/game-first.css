@@ -16,7 +16,7 @@
     opacity: 1;
 }
 body{
-    background-color: #2A374C;
+    background-color: #839bc2;
 }
 .container{
     max-width: 1280px;
@@ -62,11 +62,34 @@ background-color:#FAB912;
     cursor: pointer;
     transition: 0.3s;
 }
+
+.mes{
+    margin-left: 25px;
+    font-family: Roboto;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;
+color: #FFFFFF;
+letter-spacing: 1px;
+}
+.mes:hover{
+    color: #FAB912;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.exit{
+    background: #198FE6;
+}
+.exit:hover{
+    background-color: #5d23c9;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .start{
-    display: none;
-
-
-    margin-top: 70px;
+    /*display: none;
+    margin-top: 40px;*/
     margin-left: 600px;
 }
 .main-part{
@@ -87,33 +110,33 @@ background-color:#FAB912;
 }
 .number{
     font-family: Roboto;
-    font-size: 23px;
+    font-size: 22px;
     margin-bottom: 5px;
     color:white;
 }
 .block-alphabet{
-    display: flex;
-    flex-direction: column;
     align-items: center;
     font-family: Roboto;
 }
 .alphabet{
-    margin-left: 12px;
+    margin-left: 10px;
 }
 .alpha{
     font-family: Roboto;
-    font-size: 23px;
+    font-size: 22px;
     margin-right: 11px;
     color:white;
 }
 .play-board{
-    table-layout: fixed;
-    border-collapse:collapse;
-    border: 3px solid #b3daff;
+    /*border: 3px solid #b3daff;*/
+}
+.table__row{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
 }
 .table__item{
     border: 1px solid white;
-    border-collapse:collapse;
     height: 30px;
     width: 30px;
 }
@@ -134,7 +157,7 @@ background-color:#FAB912;
     color:rgb(194, 194, 194);
     letter-spacing: 1px;
 }
-.ships{
+/*.ships{
     display: flex;
     flex-direction: column;
 }
@@ -146,16 +169,20 @@ background-color:#FAB912;
 }
 .four-ships{
     display: flex;
-}
+}*/
 .ship{
+    position: absolute;
     margin-bottom: 30px;
     margin-right: 50px;
-    height: 30px;
-    border:1px solid white;
-    background-color: rgb(178, 219, 226);
+    height: 36px;
+    /*border:1px solid white;
+    background-color: rgb(178, 219, 226);*/
 }
 .one-ship{
     width: 120px;
+}
+.block{
+    width: 30px;
 }
 .two-ship{
     width: 90px;
@@ -184,14 +211,20 @@ background-color:#FAB912;
 
 
 
-
-
+.enemy-part{
+    display: none;
+}
+.board-title{
+    display: none;
+}
 
 
 
 .right-part{
-    display: none;
+   /* display: none;*/
 }
+
+
 
 
 .modal{
@@ -208,7 +241,6 @@ background-color:#FAB912;
 }
 .modal-body{
     margin-bottom: 52px;/*внешний отступ*/
-    padding: 0 30px;
     display: flex;
     justify-content: space-between;
 }
@@ -266,3 +298,123 @@ background-color:#FAB912;
     line-height: 26px;
     color: #000000;
 }
+.modal-subtitle{
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 28px;
+}
+.body-dev{
+    display: flex;
+    flex-direction: column;
+}
+.devs{
+    margin-top: 40px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 25px;
+}
+.date{
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 25px;
+}
+.system-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 17px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.rules-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 17px;
+    text-align: left;
+    line-height: 30px;
+}
+
+
+
+/* reset */
+html, body, div, span, h1, h2, p, a, img, strong, ul, li, button, footer, header {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
+*, :after, :before {-webkit-box-sizing: border-box; box-sizing: border-box;}
+a, button, div {outline: none;}
+ul {list-style: none;}
+img {border: none;}
+
+/* grid */
+html, body, .wrap {height: 100%;}
+.wrap {width: 1024px; margin: 0 auto; padding: 20px;}
+
+.ship, .icon-field {background: url('../img/sprite.png') no-repeat;}
+
+/* typography */
+body {font: normal 16px Roboto; line-height: 24px; color: #ffffff;}
+p {margin-bottom: 10px;}
+
+/* buttons 
+.btn-play {width: 144px; height: 45px; display: block; font-size: 24px; line-height: 40px; text-align: center; margin: 0 auto; background-position: 0 -150px; cursor: pointer;}*/
+.btn-newgame { font-size: 19px; margin-top: 10px; }
+
+/* display */
+.flex { display: flex; }
+[data-hidden="true"] {display:none;}
+[data-hidden="false"], .block {display:block;}
+
+/*** CONTENT ***/
+
+.battlefield {width: 860px; height: 463px; position: relative; margin: 0 auto;}
+.text-top {height: 66px; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 7px;}
+.service-text {color: #c00; text-align: center; padding-top: 10px;}
+
+.outer {margin-bottom: 21px; padding-left: 38px;}
+.field {margin-left: 20px;width: 366px; height: 363px; flex-shrink: 0; position: relative; background: url('../img/bg-game1.png') no-repeat;}
+.field-computer {margin-left: 31px;}
+
+.ships {width: 330px; height: 330px; position: relative; left: 29px; top: 27px;}
+.ship {height: 35px; position: absolute;}
+.vertical {transform: rotate(90deg); transform-origin: 17.5px 17.5px;}
+
+.fourdeck {width: 134px; background-position: 0 0;}
+.fourdeck.success {background-position: 0 -50px;}
+.fourdeck.unsuccess {background-position: 0 -100px;}
+.tripledeck {width: 101px; background-position: -150px 0;}
+.tripledeck.success {background-position: -150px -50px;}
+.tripledeck.unsuccess {background-position: -150px -100px;}
+.doubledeck {width: 68px; background-position: -270px 0;}
+.doubledeck.success {background-position: -270px -50px;}
+.doubledeck.unsuccess {background-position: -270px -100px;}
+.singledeck {width: 35px; background-position: -360px 0;}
+.singledeck.success {background-position: -360px -50px;}
+.singledeck.unsuccess {background-position: -360px -100px;}
+
+.instruction {margin-left: 26px; -webkit-user-select: none; user-select: none;}
+.type-placement-box {line-height: 34px; padding-bottom: 18px;}
+	.type-placement-box .link {font-size: 20px; border-bottom: dashed 2px #4530af; cursor: pointer;}
+
+.initial-ships li {height: 35px; position: relative; overflow: hidden; margin-top: 31px;}
+.initial-ships .ship {left: 0; top: 0; float: left; cursor: move;}
+.initial-ships .tripledeck1 {left: 164px;}
+.initial-ships .tripledeck2 {left: 297px;}
+.initial-ships .doubledeck2 {left: 99px;}
+.initial-ships .doubledeck3 {left: 197px;}
+.initial-ships .singledeck2 {left: 65px;}
+.initial-ships .singledeck3 {left: 131px;}
+.initial-ships .singledeck4 {left: 197px;}
+
+.icon-field {width: 33px; height: 33px; display: block; position: absolute; z-index: 5;}
+.dot {background-position: -410px 0;}
+.red-cross {background-position: -410px -50px;}
+.shaded-cell {background-position: -410px -100px;}
+.shaded-cell_red {background-position: -410px -140px;}
+.explosion { background-position: -150px -150px; z-index: 6; opacity: 0; transition: opacity .2s linear; }
+.explosion.active { opacity: 1; }

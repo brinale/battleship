@@ -91,7 +91,7 @@ letter-spacing: 1px;
     background: #198FE6;
     margin-bottom: 20px;
 }
-.button_sign-up{
+.button_sign-up, .sign-up{
     background: #FAB912;
     margin-top: 70px;
 }
@@ -100,7 +100,7 @@ letter-spacing: 1px;
     cursor: pointer;
     transition: 0.3s;
 }
-.button_sign-up:hover{
+.button_sign-up:hover, .sign-up:hover{
     background-color: #df884f;
     cursor: pointer;
     transition: 0.3s;
@@ -136,7 +136,7 @@ transition: 0.3s linear;
 .forget-password:hover{
     color:#61e968;
 }
-.modal{
+.modal-reg{
     position: fixed;
     left:0;
     top: 0;
@@ -153,7 +153,7 @@ transition: 0.3s linear;
 }
 .modal-dialog{
     max-width: 600px;
-    height: 600px;
+    height: 450px;
     width: 95%;
     background: #FFFFFF;
     border-radius: 10px;
@@ -176,7 +176,7 @@ transition: 0.3s linear;
     line-height: 36px;
     color: #000000;
 }
-.close{
+.close-reg{
     font-size: 36px;
     border:none;
     background-color: transparent;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Морской бой - Добро пожаловать</title>
+    <title>Морской бой</title>
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
@@ -31,41 +31,46 @@
                 <div class="choose choose-enemy">
                     <span class="select-title enemy-title">Оппонент:</span>
                     <select size="1" class="select select-enemy">
-                        <option selected>Компьютер</option>
-                        <option>Другой игрок</option>
+                        <option class="select-option" selected>Компьютер</option>
+                        <option class="select-option">Другой игрок</option>
                     </select>
                 </div>
                 <div class="choose choose-position">
                     <span class="select-title position-title">Расстановка:</span>
                     <select size="1" class="select select-position">
-                        <option selected>Ручная</option>
-                        <option>Автоматическая</option>
+                        <option class="select-option" selected>Ручная</option>
+                        <option class="select-option">Автоматическая</option>
                     </select>
                 </div>
                 <div class="choose choose-strategy">
                     <span class="select-title strategy-title">Стратегия<br>расстановки:</span>
                     <select size="1" class="select select-strategy">
-                        <option selected>"Берега"</option>
-                        <option>"Половина поля"</option>
+                        <option class="select-option" selected>"Берега"</option>
+                        <option class="select-option">"Половина поля"</option>
                     </select>
                 </div>
-                <a href="./game.html" class="entry-game">
+                <a class="entry-game">
                     <button class="button new-game">Начать игру</button>
                 </a>
             </form>
         </div>
         <div class="download-game-part">
             <span class="part-title download">Загрузка игры</span>
-            <button class="button choose-file">Выберите игру</button>
+            <!--<button class="button choose-file">Выберите игру</button>-->
+            <div class="input__wrapper">
+                <input type="file" name="file" id="input__file" class="input input__file" accept=".json">
+                <label for="input__file" class="input__file-button">
+                <span class="input__file-button-text">Выберите файл</span>
+                </label>
+            </div>
             <button class="button download-game">Загрузить игру</button>
         </div>
     </div>
-    </div>
-    <div class="modal">
+    <div class="modal modal-dev">
         <div class="modal-dialog">
             <div class="modal-header">
                 <h2 class="modal-title">Разработчики</h2>
-                <button class="close">&times;</button>
+                <button class="close" id="close-dev">&times;</button>
             </div>
             <div class="modal-body">
                 <h3 class="modal-subtitle">Самарский университет</h3>
@@ -75,6 +80,75 @@
             </div>
         </div>
     </div>
-    <script src="./js/mainmain.js"></script>
+    <div class="modal modal-rating">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 class="modal-title">Рейтинг</h2>
+                <button class="close close-rating">&times;</button>
+            </div>
+            <div class="modal-body rate-body">
+                <div class="rating-column">
+                    <span class="name">1. Марио</span>
+                    <span class="name">2. Вася</span>
+                    <span class="name">3. Петя</span>
+                    <span class="name">4. Маша</span>
+                    <span class="name">5. Эдди</span>
+                    <span class="name">6. Лиза</span>
+                    <span class="name">7. Лёня</span>
+                    <span class="name">8. Ира</span>
+                    <span class="name">9. Витя</span>
+                    <span class="name">10. Мурзик</span>
+                </div>
+                <div class="rating-column">
+                    <span class="rate">99</span>
+                    <span class="rate">87</span>
+                    <span class="rate">83</span>
+                    <span class="rate">79</span>
+                    <span class="rate">75</span>
+                    <span class="rate">73</span>
+                    <span class="rate">65</span>
+                    <span class="rate">58</span>
+                    <span class="rate">41</span>
+                    <span class="rate">28</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-system">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 class="modal-title">О системе</h2>
+                <button class="close close-system">&times;</button>
+            </div>
+            <div class="modal-body system-body">
+            <p class="system-text"><b>Объект автоматизации:</b> игра «Морской бой»<br><br>
+                <b>Виды автоматизируемой деятельности:</b><br>
+                − процесс ручной расстановки кораблей;<br>
+                − процесс автоматической расстановки кораблей;<br>
+                − процесс сохранения расстановки кораблей на компьютер;<br>
+                − процесс ведения боя;<br>
+                − процесс формирования рейтинга игроков;<br>
+                − процесс визуализации игры «Морской бой».<br><br>
+                <b>Количество игроков:</b>  2</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal__game-rules">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 class="modal-title">Правила игры</h2>
+                <button class="close close__game-rules">&times;</button>
+            </div>
+            <div class="modal-body gamerules-body">
+                <p class="rules-text">В автоматизированной системе «Игра «Морской бой» игрок сможет совершить ход, кликнув левой кнопкой мыши по клетке, расположенной на поле противника.<br><br>
+                    При удачном выстреле по кораблю противника на соответствующей клетке вражеского поля ставится крестик и производится повторный выстрел, при неудачном выстреле в соответствующей клетке ставится точка, и ход переходит к противнику.<br><br>
+                    Игра будет продолжаться до тех пор, пока один из игроков не «потопит» все корабли противника.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="./js/main-game.js"></script>
 </body>
 </html>
