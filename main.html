@@ -30,28 +30,26 @@
             <form action="" class="new-game-form">
                 <div class="choose choose-enemy">
                     <span class="select-title enemy-title">Оппонент:</span>
-                    <select size="1" class="select select-enemy">
+                    <select size="1" class="select select-enemy" id="select-enemy">
                         <option class="select-option" selected>Компьютер</option>
                         <option class="select-option">Другой игрок</option>
                     </select>
                 </div>
                 <div class="choose choose-position">
                     <span class="select-title position-title">Расстановка:</span>
-                    <select size="1" class="select select-position">
+                    <select size="1" class="select select-position" id="select-pos">
                         <option class="select-option" selected>Ручная</option>
                         <option class="select-option">Автоматическая</option>
                     </select>
                 </div>
                 <div class="choose choose-strategy">
                     <span class="select-title strategy-title">Стратегия<br>расстановки:</span>
-                    <select size="1" class="select select-strategy">
+                    <select size="1" class="select select-strategy" id="select-strategy">
                         <option class="select-option" selected>"Берега"</option>
                         <option class="select-option">"Половина поля"</option>
                     </select>
                 </div>
-                <a class="entry-game">
-                    <button class="button new-game">Начать игру</button>
-                </a>
+                <button class="button new-game">Начать игру</button>
             </form>
         </div>
         <div class="download-game-part">

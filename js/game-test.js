@@ -126,6 +126,57 @@
 			return obj;
 		}
 
+		shoreLocationShips() {
+			for (let type in Field.SHIP_DATA) {
+				// кол-во кораблей данного типа
+				let count = Field.SHIP_DATA[type][0];
+				// кол-во палуб у корабля данного типа
+				let decks = Field.SHIP_DATA[type][1];
+				// прокручиваем кол-во кораблей
+				for (let i = 0; i < count; i++) {
+					// получаем координаты первой палубы и направление расположения палуб (корабля)
+					let options = this.getCoordsDecksShore(decks);
+					// кол-во палуб
+					options.decks = decks;
+					// имя корабля, понадобится в дальнейшем для его идентификации
+					options.shipname = type + String(i + 1);
+					// создаём экземпляр корабля со свойствами, указанными в
+					// объекте options с помощью класса Ship
+					const ship = new Ships(this, options);
+					ship.createShip();
+				}
+			}
+		}
+
+		getCoordsDecksShore(decks) {
+			let kx = Field.getRandom(1), ky = (kx == 0) ? 1 : 0,
+				x, y;
+			if (kx == 0) {
+				if(decks>=2){
+					x = 0; 
+					y = Field.getRandom(10);
+				}
+				else {
+					x = 9; 
+					y = Field.getRandom(10);
+				}
+			} else {
+				if(decks>2){
+				x = Field.getRandom(10); 
+				y = 0;
+				}
+				else {
+					x = Field.getRandom(10); 
+					y = 9;
+				}
+			}
+
+			const obj = {x, y, kx, ky}
+			const result = this.checkLocationShip(obj, decks);
+			if (!result) return this.getCoordsDecksShore(decks);
+			return obj;
+		}
+
 		checkLocationShip(obj, decks) {
 			let { x, y, kx, ky, fromX, toX, fromY, toY } = obj;
 
@@ -915,11 +966,13 @@
 
 	// экземпляр игрового поля только регистрируем
 	const computerfield = getElement('field_computer');
-	let computer = {};
+    let computer = {};
+    
+    
 
-	getElement('type_placement').addEventListener('click', function(e) {
+	window.onload=function() {
 		// используем делегирование основанное на всплытии событий
-		if (e.target.tagName != 'SPAN') return;
+		//if (e.target.tagName != 'SPAN') return;
 
 		// если мы уже создали эскадру ранее, то видна кнопка начала игры
 		// скроем её на время повторной расстановки кораблей
@@ -929,20 +982,22 @@
 
 		// 
 		let initialShipsClone = '';
+		let exp="random";
 		// способ расстановки кораблей на игровом поле
-		const type = e.target.dataset.target;
+		//const type = e.target.dataset.target;
 		// создаём литеральный объект typeGeneration
 		// каждому свойству литерального объекта соответствует анонимная функция
 		// в которой вызывается рандомная или ручная расстановка кораблей
-		const typeGeneration = {
-			random() {
+		//const typeGeneration = {
+            switch(exp){
+			case "random" :
 				// скрываем контейнер с кораблями, предназначенными для перетаскивания
 				// на игровое поле
 				shipsCollection.hidden = true;
 				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
-				human.randomLocationShips();
-			},
-			manually() {
+				human.shoreLocationShips();
+				break;
+			case "manually":
 				// этот код мы рассмотрим, когда будем реализовывать
 				// расстановку кораблей перетаскиванием на игровое поле
 				let value = !shipsCollection.hidden;
@@ -958,18 +1013,37 @@
 				}
 
 				shipsCollection.hidden = value;
-			}
-		};
+				break;
+            }
+        
+		//};
 		// вызов анонимной функции литерального объекта в зависимости
 		// от способа расстановки кораблей
-		typeGeneration[type]();
+		//typeGeneration[type]();
 
 		const placement = new Placement();
 		placement.setObserver();
-	});
+	};
 
 	let battle = null;
 
+	function getPlayerHalfField(){
+		//let json=JSON.stringify(user);
+		console.log(json);
+		let xhr=new XMLHttpRequest();
+		let link="http://localhost:3000/halfField";
+		xhr.open("GET", link);
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState!=4) return;
+			if (xhr.status!=200) {
+				alert("Не удалось получить расстановку");
+			}
+			else {
+				return(xhr.response)
+			}
+		};
+	}
 
 	buttonPlay.addEventListener('click', function(e) {
 		buttonPlay.dataset.hidden = true;
@@ -981,6 +1055,7 @@
 		computer.cleanField();
 		computer.randomLocationShips();
 		console.log(human.matrix);
+		//console.log(getPlayerHalfField());
 		startGame = true;
 
 		if (!battle) battle = new Controller();

@@ -358,7 +358,7 @@ html, body, .wrap {height: 100%;}
 .ship, .icon-field {background: url('../img/sprite.png') no-repeat;}
 
 /* typography */
-body {font: normal 16px Roboto; line-height: 24px; color: #ffffff;}
+body {font: normal 16px Roboto; line-height: 24px;}
 p {margin-bottom: 10px;}
 
 /* buttons 
@@ -369,7 +369,9 @@ p {margin-bottom: 10px;}
 .flex { display: flex; }
 [data-hidden="true"] {display:none;}
 [data-hidden="false"], .block {display:block;}
-
+.link, .text-top{
+    color: white;
+}
 /*** CONTENT ***/
 
 .battlefield {width: 860px; height: 463px; position: relative; margin: 0 auto;}
@@ -397,9 +399,9 @@ p {margin-bottom: 10px;}
 .singledeck.success {background-position: -360px -50px;}
 .singledeck.unsuccess {background-position: -360px -100px;}
 
-.instruction {margin-left: 26px; -webkit-user-select: none; user-select: none;}
+.instruction {margin-top: 30px; padding-top: 20px;margin-left: 26px; -webkit-user-select: none; user-select: none;}
 .type-placement-box {line-height: 34px; padding-bottom: 18px;}
-	.type-placement-box .link {font-size: 20px; border-bottom: dashed 2px #4530af; cursor: pointer;}
+.type-placement-box .link {font-size: 20px; border-bottom: dashed 2px #4530af; cursor: pointer;}
 
 .initial-ships li {height: 35px; position: relative; overflow: hidden; margin-top: 31px;}
 .initial-ships .ship {left: 0; top: 0; float: left; cursor: move;}

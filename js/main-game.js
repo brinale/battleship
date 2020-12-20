@@ -1,9 +1,5 @@
 const exitButton=document.querySelector(".exit");
 
-const ships=document.querySelectorAll(".ship");
-const userSquares=document.querySelectorAll(".player_item");
-const displayGrid=document.querySelector(".ships");
-
 const button_rating=document.querySelector(".rating");
 const modalRat=document.querySelector(".modal-rating");
 const closeRat=document.querySelector(".close-rating");
@@ -17,6 +13,7 @@ const closeRules=document.querySelector(".close__game-rules");
 const modalDev=document.querySelector(".modal-dev");
 const closeDev=document.getElementById("close-dev");
 const button_dev=document.querySelector(".developers");
+const place=document.querySelector(".place");
 
 const button_NewGame=document.querySelectorAll(".new-game");
 
@@ -29,10 +26,21 @@ function openMain(){
     window.close();
     window.open("index.html");
 }
+
 function openGame(){
-    window.close();
-    window.open("game.html");
+    
+    let selectEnemy = document.getElementById("select-enemy");
+    let selectPos = document.getElementById("select-pos");
+    let selectStrategy = document.getElementById("select-strategy");
+    let valueEnemy = selectEnemy.value;
+    let valuePos = selectPos.value;
+    let valueStrategy = selectStrategy.value;
+    if (valueEnemy=="Компьютер" && valuePos=="Ручная"){
+        window.close();
+        window.open("game.html");
+    }
 }
+
 function openSys(){
     window.close();
     window.open("info.html");
