@@ -11,12 +11,15 @@
 </head>
 <body>
     <div class="container">
+        <audio id="audiotag1" src="./audio/miss.mp3" preload="false"></audio>
+        <audio id="audiotag2" src="./audio/hit.mp3" preload="false"></audio>
         <header class="header">
                 <div class="logo">
                     <img src="img/anchor.svg" alt="Logo Picture" class="logo-pic" width="30px" height="30px">
                     <span class="logo-text">Морской бой</span>
                 </div>
                 <div class="buttons">
+                    <span class="turn-sound" id='sound'>Отключить звук</span>
                     <span class="mes about-system">О системе</span>
                     <span class="mes developers">Разработчики</span>
                     <button class="button rules">Правила игры</button>
@@ -453,14 +456,15 @@
 <div class="button-group">
     <button class="button start btn-play" id="play" data-hidden="true">Начать игру</button>
     <button class="button save" id="save" data-hidden="true">Сохранить расстановку</button>
-    <div class="input__wrapper"  id="load"  data-hidden="false">
+    <div class="input__wrapper" id="load">
         <input type="file" name="file" id="input__file" class="input input__file" accept=".json">
-        <label for="input__file button" class="input__file-button">
-            <span class="input__file-button-text">Загрузить расстановку</span>
+        <label for="input__file" class="input__file-button">
+        <span class="input__file-button-text">Загрузить расстановку</span>
         </label>
     </div>
     <button class="button newgame" id="newgame" data-hidden="true">Продолжить</button>
 </div>
+<div class="download" data-hidden="true"></div>
 
         <div class="boards-text">
             <span class="board-title yours-board">Ваше поле</span>

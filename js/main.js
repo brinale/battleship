@@ -55,6 +55,8 @@ function auth(){
             alert("Авторизация не удалась");
         }
         else {
+            localStorage.clear();
+            localStorage.setItem('auth', user.login);
             window.close();
             window.open("main.html");
         }

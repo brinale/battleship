@@ -16,7 +16,7 @@
     opacity: 1;
 }
 body{
-    background-color: #839bc2;
+    background-color: #99b5e2;
 }
 .container{
     max-width: 1280px;
@@ -162,7 +162,7 @@ letter-spacing: 1px;
 .play-desc{
     font-family: Roboto;
     font-size: 16px;
-    color:rgb(194, 194, 194);
+    color:rgb(219, 219, 219);
     letter-spacing: 1px;
 }
 /*.ships{
@@ -356,6 +356,7 @@ letter-spacing: 1px;
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .input__wrapper {
     width: 100%;
@@ -391,6 +392,43 @@ letter-spacing: 1px;
 }
 .input__file-button:hover{
     background-color: #df884f;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.turn-sound{
+    text-align: center;
+    color:white;
+    font-size: 16px;
+    font-weight: 700;
+}
+.turn-sound:hover{
+    color: #FAB912;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.download{
+    margin-top: 30px;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    letter-spacing: 1px;
+    background-color:#FAB912;
+    color:white;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 221px;
+}
+a{
+    text-decoration: none;
+    letter-spacing: 1px;
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+}
+a:hover{
+    color: #df884f;
     cursor: pointer;
     transition: 0.3s;
 }

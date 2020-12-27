@@ -30,12 +30,21 @@
             <form action="" class="new-game-form">
                 <div class="choose choose-enemy">
                     <span class="select-title enemy-title">Оппонент:</span>
-                    <select size="1" class="select select-enemy" id="select-enemy">
+                    <!--<select size="1" class="select select-enemy" id="select-enemy">
                         <option class="select-option" selected>Компьютер</option>
                         <option class="select-option">Другой игрок</option>
-                    </select>
+                    </select>-->
+                    <div class="choose-oppon">
+                        <div class="choice">
+                        <input type="radio" id="opponChoice1" name="choice" value="human">
+                        <label class="choice-label" for="opponChoice1">Другой игрок</label></div>
+                        <div class="choice">
+                            <input type="radio" id="opponChoice2" checked name="choice" value="computer">
+                            <label class="choice-label" for="opponChoice2" >Компьютер</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="choose choose-position">
+                <!--<div class="choose choose-position">
                     <span class="select-title position-title">Расстановка:</span>
                     <select size="1" class="select select-position" id="select-pos">
                         <option class="select-option" selected>Ручная</option>
@@ -48,13 +57,13 @@
                         <option class="select-option" selected>"Берега"</option>
                         <option class="select-option">"Половина поля"</option>
                     </select>
-                </div>
+                </div>-->
                 <button class="button new-game">Начать игру</button>
             </form>
         </div>
-        <div class="download-game-part">
+        <!--<div class="download-game-part">
             <span class="part-title download">Загрузка игры</span>
-            <!--<button class="button choose-file">Выберите игру</button>-->
+            <button class="button choose-file">Выберите игру</button>
             <div class="input__wrapper">
                 <input type="file" name="file" id="input__file" class="input input__file" accept=".json">
                 <label for="input__file" class="input__file-button">
@@ -62,7 +71,7 @@
                 </label>
             </div>
             <button class="button download-game">Загрузить игру</button>
-        </div>
+        </div>-->
     </div>
     <div class="modal modal-dev">
         <div class="modal-dialog">
@@ -86,28 +95,28 @@
             </div>
             <div class="modal-body rate-body">
                 <div class="rating-column">
-                    <span class="name">1. Марио</span>
-                    <span class="name">2. Вася</span>
-                    <span class="name">3. Петя</span>
-                    <span class="name">4. Маша</span>
-                    <span class="name">5. Эдди</span>
-                    <span class="name">6. Лиза</span>
-                    <span class="name">7. Лёня</span>
-                    <span class="name">8. Ира</span>
-                    <span class="name">9. Витя</span>
-                    <span class="name">10. Мурзик</span>
+                    <span class="name" id="name1"><span>1. </span>Марио</span>
+                    <span class="name" id="name2"><span>2. </span>Вася</span>
+                    <span class="name" id="name3"><span>3. </span>Петя</span>
+                    <span class="name" id="name4"><span>4. </span>Маша</span>
+                    <span class="name" id="name5"><span>5. </span>Эдди</span>
+                    <span class="name" id="name6"><span>6. </span>Лиза</span>
+                    <span class="name" id="name7"><span>7. </span>Лёня</span>
+                    <span class="name" id="name8"><span>8. </span>Ира</span>
+                    <span class="name" id="name9"><span>9. </span>Витя</span>
+                    <span class="name" id="name10"><span>10. </span>Мурзик</span>
                 </div>
                 <div class="rating-column">
-                    <span class="rate">99</span>
-                    <span class="rate">87</span>
-                    <span class="rate">83</span>
-                    <span class="rate">79</span>
-                    <span class="rate">75</span>
-                    <span class="rate">73</span>
-                    <span class="rate">65</span>
-                    <span class="rate">58</span>
-                    <span class="rate">41</span>
-                    <span class="rate">28</span>
+                    <span class="rate" id="rate1">99</span>
+                    <span class="rate" id="rate2">87</span>
+                    <span class="rate" id="rate3">83</span>
+                    <span class="rate" id="rate4">79</span>
+                    <span class="rate" id="rate5">75</span>
+                    <span class="rate" id="rate6">73</span>
+                    <span class="rate" id="rate7">65</span>
+                    <span class="rate" id="rate8">58</span>
+                    <span class="rate" id="rate9">41</span>
+                    <span class="rate" id="rate10">28</span>
                 </div>
             </div>
         </div>

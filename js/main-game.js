@@ -28,20 +28,54 @@ function openMain(){
 }
 
 function openGame(){
-    
-    let selectEnemy = document.getElementById("select-enemy");
-    let selectPos = document.getElementById("select-pos");
-    let selectStrategy = document.getElementById("select-strategy");
-    let valueEnemy = selectEnemy.value;
-    let valuePos = selectPos.value;
-    let valueStrategy = selectStrategy.value;
-    if (valueEnemy=="Компьютер" && valuePos=="Ручная"){
+    let valueEnemy = document.querySelector('input[name="choice"]:checked').value;
+    if (valueEnemy=="computer"){
         window.close();
         window.open("game.html");
     }
-    else{
-        window.close();
-        window.open("game1.html");
+}
+
+function getRating(){
+    let ratingList;
+    let xhr=new XMLHttpRequest();
+    let link="http://localhost:3000/users";
+    xhr.open("GET", link);
+    xhr.send();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState!=4) return;
+        if (xhr.status!=200) {
+            alert("Не удалось получить рейтинг от сервера!");
+        }
+        else {
+            try{
+                ratingList=JSON.parse(xhr.responseText);
+                console.log(ratingList);
+                setRating(ratingList);
+            }
+            catch(err){
+                alert(err.message);
+                alert("Не удалось получить рейтинг!");
+            }
+        }
+    };
+}
+
+function setRating(ratingList){
+    for (let i=1;i<ratingList.length+1;i++){
+        let user=ratingList[i-1];
+        let rate=user.rating;
+        let rateName=document.getElementById("name"+i);
+        let rateNum=document.getElementById("rate"+i);
+        rateName.textContent=i+". "+user.login;
+        rateNum.textContent=rate.score;
+    }
+    if(ratingList.length!=10){
+        for (let i=ratingList.length+1;i<11;i++){
+            let rateName=document.getElementById("name"+i);
+            let rateNum=document.getElementById("rate"+i);
+            rateName.textContent=i+". ";
+            rateNum.textContent=" ";
+        }
     }
 }
 
@@ -57,5 +91,8 @@ closeRules.addEventListener('click', () => toggleModal(modalRules));
 button_dev.addEventListener('click',()=>toggleModal(modalDev));
 closeDev.addEventListener('click', () => toggleModal(modalDev));
 button_system.addEventListener('click',openSys);
-button_rating.addEventListener('click', ()=>toggleModal(modalRat));
+button_rating.addEventListener('click', ()=>{
+    toggleModal(modalRat);
+    getRating();
+});
 closeRat.addEventListener('click',()=>toggleModal(modalRat));

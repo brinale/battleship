@@ -324,7 +324,6 @@
 				if (Object.keys(player.squadron).length == 10) {
 					buttonPlay.dataset.hidden = false;
 					buttonSave.dataset.hidden = false;
-					buttonLoad.dataset.hidden = false;
 				}
 			}
 		}
@@ -881,7 +880,7 @@
 			// устанавливаем иконку промаха и записываем промах в матрицу
 			this.showIcons(this.opponent, [x, y], 'dot');
 			this.opponent.matrix[x][y] = 3;
-
+			if (sound) document.getElementById('audiotag1').play();
 			// определяем статус игроков
 			if (this.player === human) {
 				text = 'Вы промахнулись. Стреляет компьютер.';
@@ -909,6 +908,7 @@
 			let text = '';
 			// устанавливаем иконку попадания и записываем попадание в матрицу
 			this.showIcons(this.opponent, [x, y], 'red-cross');
+			if (sound) document.getElementById('audiotag2').play();
 			this.opponent.matrix[x][y] = 4;
 			text = (this.player === human) ? 'Поздравляем! Вы попали. Ваш выстрел.' : 'Компьютер попал в ваш корабль. Выстрел компьютера';
 			setTimeout(() => Controller.showServiceText(text), 400);
@@ -946,6 +946,7 @@
 				}
 				rate=(Number(rateOff)/Number(rateAll))*100;
 				rate=Math.floor(rate);
+				addRatingToServer(rate);
 				if (this.opponent === human) {
 					text = `К сожалению, вы проиграли. Вы набрали ${rate} очков.`;
 					// показываем оставшиеся корабли компьютера
@@ -1006,7 +1007,11 @@
 	const buttonLoad = getElement('load');
 	// получаем экземпляр игрового поля игрока
 	const humanfield = getElement('field_human');
+	const buttonSound=getElement('sound');
+	let sound=true;
 	const human = new Field(humanfield);
+	const login=localStorage.getItem('auth');
+	let input=getElement('input__file');
 
 	// экземпляр игрового поля только регистрируем
 	const computerfield = getElement('field_computer');
@@ -1160,12 +1165,14 @@
 				// скрываем контейнер с кораблями, предназначенными для перетаскивания
 				// на игровое поле
 				shipsCollection.hidden = true;
+				buttonLoad.dataset.hidden = true;
 				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
 				//human.shoreLocationShips();
 				human.locateShip(shoreLocation);
 			},
 			randomHalf(){
 				shipsCollection.hidden = true;
+				buttonLoad.dataset.hidden = true;
 				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
 				//human.shoreLocationShips();
 				human.locateShip(halfLocation);
@@ -1174,7 +1181,7 @@
 				// этот код мы рассмотрим, когда будем реализовывать
 				// расстановку кораблей перетаскиванием на игровое поле
 				let value = !shipsCollection.hidden;
-
+				buttonLoad.dataset.hidden = true;
 				if (shipsCollection.children.length > 1) {
 					shipsCollection.removeChild(shipsCollection.lastChild);
 				}
@@ -1184,7 +1191,6 @@
 					shipsCollection.appendChild(initialShipsClone);
 					initialShipsClone.hidden = false;
 				}
-
 				shipsCollection.hidden = value;
 			}
 		};
@@ -1198,15 +1204,33 @@
 
 	let battle = null;
 
+	function addRatingToServer(rate){
+		let player={
+			"login":login,
+			"score": rate
+		}
+		let json=JSON.stringify(player) ;
+		let xhr=new XMLHttpRequest();
+		let link="http://localhost:3000/addRating";
+		xhr.open("POST", link);
+		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+		xhr.send(json);
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState!=4) return;
+				if (xhr.status!=200) console.log("Рейтинг не был загружен на сервер");
+				else console.log("Рейтинг был загружен на сервер");
+		};
+	}
 
 	buttonPlay.addEventListener('click', function(e) {
 		buttonPlay.dataset.hidden = true;
 		buttonSave.dataset.hidden = true;
 		buttonLoad.dataset.hidden = true;
+		downloadLink.dataset.hidden=true;
 		instruction.hidden = true;
 		computerfield.parentElement.hidden = false;
 		toptext.innerHTML = 'Морской бой между эскадрами';
-
+		console.log(login);
 		computer = new Field(computerfield);
 		computer.cleanField();
 		computer.randomLocationShips();
@@ -1217,6 +1241,17 @@
 		if (!battle) battle = new Controller();
 		battle.init();
 	});
+
+	buttonSound.addEventListener('click',()=>{
+		if(buttonSound.textContent=='Отключить звук') {
+			sound=false;
+			buttonSound.textContent='Включить звук';
+		}
+		else{
+			sound=true;
+			buttonSound.textContent='Отключить звук';
+		}
+	})
 
 	buttonNewGame.addEventListener('click', function(e) {
 		/*buttonNewGame.dataset.hidden = true;
@@ -1236,9 +1271,34 @@
 		window.location.reload();
 	});
 
-	buttonSave.addEventListener('click',()=>{
+	buttonLoad.addEventListener('click', e=>{
+		/*console.log(e.dataTranfer);
+		file=e.dataTransfer.files[0];
+		console.log(file);*/
+		input.addEventListener('change', () => {
+			file = input.files[0];
+			const reader = new FileReader();
+			reader.readAsText(file, 'windows-1251');
+			reader.onload =()=>console.log(reader.result);
+		});
+	});
 
-	})
+	let downloadLink;
+
+	buttonSave.addEventListener('click',()=>{
+		const file = new Blob(
+			[JSON.stringify(human.squadron)], {
+				type: 'application/json'
+			}
+		);
+		downloadLink = document.createElement('a');
+		downloadLink.setAttribute('href', URL.createObjectURL(file));
+		downloadLink.setAttribute('download', login+"battleship.json");
+		downloadLink.textContent = 'Скачать расстановку';
+		document.querySelector('.download').dataset.hidden=false;
+		document.querySelector('.download').append(downloadLink);
+		URL.revokeObjectURL(file);
+	});
 
 	/////////////////////////////////////////////////
 
