@@ -934,15 +934,27 @@
 
 			// все корабли эскадры уничтожены
 			if (Object.keys(this.opponent.squadron).length == 0) {
+				console.log(computer.matrix);
+				let rateOff=0;
+				let rateAll=0;
+				let rate=0;
+				for (let i = 0; i < 10; i++){
+					for(let j = 0 ; j < 10; j++){
+						if (computer.matrix[i][j]==4) rateOff++;
+						if (computer.matrix[i][j]==3 || computer.matrix[i][j]==4) rateAll++;
+					}
+				}
+				rate=(Number(rateOff)/Number(rateAll))*100;
+				rate=Math.floor(rate);
 				if (this.opponent === human) {
-					text = 'К сожалению, вы проиграли.';
+					text = `К сожалению, вы проиграли. Вы набрали ${rate} очков.`;
 					// показываем оставшиеся корабли компьютера
 					for (let name in computer.squadron) {
 						const dataShip = computer.squadron[name];
 						Ships.showShip(computer, name, dataShip.x, dataShip.y, dataShip.kx );
 					}
 				} else {
-					text = 'Поздравляем! Вы выиграли!';
+					text = `Поздравляем! Вы выиграли! Вы набрали ${rate} очков.`;
 				}
 				Controller.showServiceText(text);
 				buttonNewGame.dataset.hidden = false;
@@ -1009,7 +1021,6 @@
 		// если мы уже создали эскадру ранее, то видна кнопка начала игры
 		// скроем её на время повторной расстановки кораблей
 		buttonPlay.dataset.hidden = true;
-		buttonLoad.dataset.hidden = true;
 		buttonSave.dataset.hidden = true;
 		// очищаем игровое поле игрока перед повторной расстановкой кораблей
 		human.cleanField();
@@ -1200,6 +1211,7 @@
 		computer.cleanField();
 		computer.randomLocationShips();
 		console.log(human.squadron);
+		console.log(computer.matrix);
 		startGame = true;
 
 		if (!battle) battle = new Controller();

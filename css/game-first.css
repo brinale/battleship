@@ -94,7 +94,7 @@ letter-spacing: 1px;
     margin-left: 600px;*/
     width: 100%;
     max-width: 150px;
-    margin-left: 350px;
+    margin-left: 100px;
 }
 .save{
     width: 100%;
@@ -359,6 +359,8 @@ letter-spacing: 1px;
 }
 .input__wrapper {
     width: 100%;
+    max-width: 260px;
+    text-align: center;
 }
 
 .input__file {
@@ -377,7 +379,7 @@ letter-spacing: 1px;
     margin-left: 15px;
     max-width: 175px;
     max-height: 40px;
-    padding: 8px 20px;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -449,7 +451,7 @@ p {margin-bottom: 10px;}
 .singledeck.success {background-position: -360px -50px;}
 .singledeck.unsuccess {background-position: -360px -100px;}
 
-.instruction {margin-top: -30px; padding-top: 20px;margin-left: 26px; -webkit-user-select: none; user-select: none;}
+.instruction {margin-top: -30px; padding-top: 20px;margin-left: 26px; -webkit-user-select: none; user-select: none; margin-bottom: 20px;}
 .type-placement-box {line-height: 34px; padding-bottom: 18px;}
 .type-placement-box .link {font-size: 20px; border-bottom: dashed 2px #4530af; cursor: pointer;}
 
