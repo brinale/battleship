@@ -42,6 +42,7 @@ body{
 }
 
 .button{
+    display: inline-block;
     margin-left: 15px;
     padding: 8px 20px;
     border: none;
@@ -89,8 +90,15 @@ letter-spacing: 1px;
 
 .start{
     /*display: none;
-    margin-top: 40px;*/
-    margin-left: 600px;
+    margin-top: 40px;
+    margin-left: 600px;*/
+    width: 100%;
+    max-width: 150px;
+    margin-left: 350px;
+}
+.save{
+    width: 100%;
+    max-width: 250px;
 }
 .main-part{
     display: flex;
@@ -235,6 +243,7 @@ letter-spacing: 1px;
     height: 100%;
     background: rgba(0,0,0,0.4);  /*затемнение фона*/
     display: none;
+    z-index: 5;
 }
 .is-open{
     display: flex;
@@ -342,6 +351,47 @@ letter-spacing: 1px;
     line-height: 30px;
 }
 
+.button-group{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.input__wrapper {
+    width: 100%;
+}
+
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.input__file-button-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.input__file-button {
+    margin-left: 15px;
+    max-width: 175px;
+    max-height: 40px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    letter-spacing: 1px;
+    background-color:#FAB912;
+    color:white;
+    font-size: 16px;
+    font-weight: 700;
+}
+.input__file-button:hover{
+    background-color: #df884f;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
 
 /* reset */
@@ -399,7 +449,7 @@ p {margin-bottom: 10px;}
 .singledeck.success {background-position: -360px -50px;}
 .singledeck.unsuccess {background-position: -360px -100px;}
 
-.instruction {margin-top: 30px; padding-top: 20px;margin-left: 26px; -webkit-user-select: none; user-select: none;}
+.instruction {margin-top: -30px; padding-top: 20px;margin-left: 26px; -webkit-user-select: none; user-select: none;}
 .type-placement-box {line-height: 34px; padding-bottom: 18px;}
 .type-placement-box .link {font-size: 20px; border-bottom: dashed 2px #4530af; cursor: pointer;}
 

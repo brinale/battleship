@@ -39,6 +39,10 @@ function openGame(){
         window.close();
         window.open("game.html");
     }
+    else{
+        window.close();
+        window.open("game1.html");
+    }
 }
 
 function openSys(){

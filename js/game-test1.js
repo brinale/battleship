@@ -177,6 +177,35 @@
 			return obj;
 		}
 
+		locateShip(location){
+			let j=0;
+			for (let type in Field.SHIP_DATA) {
+				// кол-во кораблей данного типа
+				let count = Field.SHIP_DATA[type][0];
+				// кол-во палуб у корабля данного типа
+				let decks = Field.SHIP_DATA[type][1];
+				// прокручиваем кол-во кораблей
+				for (let i = 0; i < count; i++) {
+					// получаем координаты первой палубы и направление расположения палуб (корабля)
+					//let options = this.getCoordsDecks(decks);
+					let options=location[j];
+					//options.x =location[j][0];
+					//options.y=location[j][1];
+					//options.kx=location[j][2];
+					//options.ky=location[j][3];
+					// кол-во палуб
+					options.decks = decks;
+					// имя корабля, понадобится в дальнейшем для его идентификации
+					options.shipname = type + String(i + 1);
+					// создаём экземпляр корабля со свойствами, указанными в
+					// объекте options с помощью класса Ship
+					const ship = new Ships(this, options);
+					ship.createShip();
+					j++;
+				}
+			}
+		}
+
 		checkLocationShip(obj, decks) {
 			let { x, y, kx, ky, fromX, toX, fromY, toY } = obj;
 
@@ -294,6 +323,8 @@
 				// сгенерированны, то можно показать кнопку запуска игры
 				if (Object.keys(player.squadron).length == 10) {
 					buttonPlay.dataset.hidden = false;
+					buttonSave.dataset.hidden = false;
+					buttonLoad.dataset.hidden = false;
 				}
 			}
 		}
@@ -959,7 +990,8 @@
 	const buttonPlay = getElement('play');
 	// кнопка перезапуска игры
 	const buttonNewGame = getElement('newgame');
-
+	const buttonSave = getElement('save');
+	const buttonLoad = getElement('load');
 	// получаем экземпляр игрового поля игрока
 	const humanfield = getElement('field_human');
 	const human = new Field(humanfield);
@@ -970,34 +1002,164 @@
     
     
 
-	window.onload=function() {
+	getElement('type_placement').addEventListener('click', function(e) {
 		// используем делегирование основанное на всплытии событий
-		//if (e.target.tagName != 'SPAN') return;
+		if (e.target.tagName != 'SPAN') return;
 
 		// если мы уже создали эскадру ранее, то видна кнопка начала игры
 		// скроем её на время повторной расстановки кораблей
 		buttonPlay.dataset.hidden = true;
+		buttonLoad.dataset.hidden = true;
+		buttonSave.dataset.hidden = true;
 		// очищаем игровое поле игрока перед повторной расстановкой кораблей
 		human.cleanField();
-
+		let shoreLocation={
+			0:{
+				"x": 0,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			1:{
+				"x": 0,
+				"y": 6,
+				"kx": 0,
+				"ky": 1,
+			},
+			2:{
+				"x": 6,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			3:{
+				"x": 7,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			4:{
+				"x": 9,
+				"y": 4,
+				"kx": 0,
+				"ky": 1,
+			},
+			5:{
+				"x": 2,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			6:{
+				"x": 0,
+				"y": 2,
+				"kx": 1,
+				"ky": 0,
+			},
+			7:{
+				"x": 5,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			8:{
+				"x": 9,
+				"y": 2,
+				"kx": 1,
+				"ky": 0,
+			},
+			9:{
+				"x": 9,
+				"y": 7,
+				"kx": 1,
+				"ky": 0,
+			},
+		};
+		let halfLocation={
+			0:{
+				"x": 0,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			1:{
+				"x": 0,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			2:{
+				"x": 4,
+				"y": 5,
+				"kx": 0,
+				"ky": 1,
+			},
+			3:{
+				"x": 0,
+				"y": 6,
+				"kx": 0,
+				"ky": 1,
+			},
+			4:{
+				"x": 3,
+				"y": 2,
+				"kx": 0,
+				"ky": 1,
+			},
+			5:{
+				"x": 0,
+				"y": 3,
+				"kx": 1,
+				"ky": 0,
+			},
+			6:{
+				"x": 6,
+				"y": 1,
+				"kx": 1,
+				"ky": 0,
+			},
+			7:{
+				"x": 9,
+				"y": 2,
+				"kx": 1,
+				"ky": 0,
+			},
+			8:{
+				"x": 7,
+				"y": 5,
+				"kx": 1,
+				"ky": 0,
+			},
+			9:{
+				"x": 6,
+				"y": 8,
+				"kx": 1,
+				"ky": 0,
+			},
+		};
 		// 
 		let initialShipsClone = '';
-		let exp="manually";
 		// способ расстановки кораблей на игровом поле
-		//const type = e.target.dataset.target;
+		const type = e.target.dataset.target;
 		// создаём литеральный объект typeGeneration
 		// каждому свойству литерального объекта соответствует анонимная функция
 		// в которой вызывается рандомная или ручная расстановка кораблей
-		//const typeGeneration = {
-            switch(exp){
-			case "random" :
+		const typeGeneration = {
+			random() {
 				// скрываем контейнер с кораблями, предназначенными для перетаскивания
 				// на игровое поле
 				shipsCollection.hidden = true;
 				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
-				human.shoreLocationShips();
-				break;
-			case "manually":
+				//human.shoreLocationShips();
+				human.locateShip(shoreLocation);
+			},
+			randomHalf(){
+				shipsCollection.hidden = true;
+				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
+				//human.shoreLocationShips();
+				human.locateShip(halfLocation);
+			},
+			manually() {
 				// этот код мы рассмотрим, когда будем реализовывать
 				// расстановку кораблей перетаскиванием на игровое поле
 				let value = !shipsCollection.hidden;
@@ -1013,40 +1175,23 @@
 				}
 
 				shipsCollection.hidden = value;
-				break;
-            }
-        
-		//};
+			}
+		};
 		// вызов анонимной функции литерального объекта в зависимости
 		// от способа расстановки кораблей
-		//typeGeneration[type]();
+		typeGeneration[type]();
 
 		const placement = new Placement();
 		placement.setObserver();
-	};
+	});
 
 	let battle = null;
 
-	function getPlayerHalfField(){
-		//let json=JSON.stringify(user);
-		console.log(json);
-		let xhr=new XMLHttpRequest();
-		let link="http://localhost:3000/halfField";
-		xhr.open("GET", link);
-		xhr.send();
-		xhr.onreadystatechange = function(){
-			if (xhr.readyState!=4) return;
-			if (xhr.status!=200) {
-				alert("Не удалось получить расстановку");
-			}
-			else {
-				return(xhr.response)
-			}
-		};
-	}
 
 	buttonPlay.addEventListener('click', function(e) {
 		buttonPlay.dataset.hidden = true;
+		buttonSave.dataset.hidden = true;
+		buttonLoad.dataset.hidden = true;
 		instruction.hidden = true;
 		computerfield.parentElement.hidden = false;
 		toptext.innerHTML = 'Морской бой между эскадрами';
@@ -1054,8 +1199,7 @@
 		computer = new Field(computerfield);
 		computer.cleanField();
 		computer.randomLocationShips();
-		console.log(human.matrix);
-		//console.log(getPlayerHalfField());
+		console.log(human.squadron);
 		startGame = true;
 
 		if (!battle) battle = new Controller();
@@ -1063,7 +1207,7 @@
 	});
 
 	buttonNewGame.addEventListener('click', function(e) {
-		buttonNewGame.dataset.hidden = true;
+		/*buttonNewGame.dataset.hidden = true;
 		computerfield.parentElement.hidden = true;
 		instruction.hidden = false;
 		human.cleanField();
@@ -1076,8 +1220,13 @@
 		battle.coordsRandom = [];
 		battle.coordsFixed = [];
 		battle.coordsAroundHit = [];
-		battle.resetTempShip();
+		battle.resetTempShip();*/
+		window.location.reload();
 	});
+
+	buttonSave.addEventListener('click',()=>{
+
+	})
 
 	/////////////////////////////////////////////////
 
