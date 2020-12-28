@@ -1017,11 +1017,15 @@
 	const computerfield = getElement('field_computer');
     let computer = {};
     
-    
+    function getRandom( n){
+		return Math.floor(Math.random() * (n + 1));
+	} 
 
 	getElement('type_placement').addEventListener('click', function(e) {
 		// используем делегирование основанное на всплытии событий
 		if (e.target.tagName != 'SPAN') return;
+
+		
 
 		// если мы уже создали эскадру ранее, то видна кнопка начала игры
 		// скроем её на время повторной расстановки кораблей
@@ -1029,7 +1033,7 @@
 		buttonSave.dataset.hidden = true;
 		// очищаем игровое поле игрока перед повторной расстановкой кораблей
 		human.cleanField();
-		let shoreLocation={
+		let shoreLocation1={
 			0:{
 				"x": 0,
 				"y": 0,
@@ -1091,7 +1095,131 @@
 				"ky": 0,
 			},
 		};
-		let halfLocation={
+		let shoreLocation2={
+			0:{
+				"x": 0,
+				"y": 4,
+				"kx": 0,
+				"ky": 1,
+			},
+			1:{
+				"x": 1,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			2:{
+				"x": 7,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			3:{
+				"x": 2,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			4:{
+				"x": 9,
+				"y": 5,
+				"kx": 0,
+				"ky": 1,
+			},
+			5:{
+				"x": 8,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			6:{
+				"x": 0,
+				"y": 1,
+				"kx": 1,
+				"ky": 0,
+			},
+			7:{
+				"x": 9,
+				"y": 2,
+				"kx": 1,
+				"ky": 0,
+			},
+			8:{
+				"x": 5,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			9:{
+				"x": 6,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+		};
+		let shoreLocation3={
+			0:{
+				"x": 9,
+				"y": 0,
+				"kx": 0,
+				"ky": 1,
+			},
+			1:{
+				"x": 0,
+				"y": 0,
+				"kx": 0,
+				"ky": 1,
+			},
+			2:{
+				"x": 0,
+				"y": 7,
+				"kx": 0,
+				"ky": 1,
+			},
+			3:{
+				"x": 4,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			4:{
+				"x": 7,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			5:{
+				"x": 9,
+				"y": 6,
+				"kx": 0,
+				"ky": 1,
+			},
+			6:{
+				"x": 0,
+				"y": 4,
+				"kx": 1,
+				"ky": 0,
+			},
+			7:{
+				"x": 2,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			8:{
+				"x": 4,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			9:{
+				"x": 7,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+		};
+		let halfLocation1={
 			0:{
 				"x": 0,
 				"y": 9,
@@ -1153,6 +1281,130 @@
 				"ky": 0,
 			},
 		};
+		let halfLocation2={
+			0:{
+				"x": 9,
+				"y": 0,
+				"kx": 0,
+				"ky": 1,
+			},
+			1:{
+				"x": 5,
+				"y": 2,
+				"kx": 1,
+				"ky": 0,
+			},
+			2:{
+				"x": 5,
+				"y": 7,
+				"kx": 0,
+				"ky": 1,
+			},
+			3:{
+				"x": 9,
+				"y": 5,
+				"kx": 0,
+				"ky": 1,
+			},
+			4:{
+				"x": 6,
+				"y": 4,
+				"kx": 1,
+				"ky": 0,
+			},
+			5:{
+				"x": 8,
+				"y": 8,
+				"kx": 0,
+				"ky": 1,
+			},
+			6:{
+				"x": 0,
+				"y": 3,
+				"kx": 1,
+				"ky": 0,
+			},
+			7:{
+				"x": 3,
+				"y": 1,
+				"kx": 1,
+				"ky": 0,
+			},
+			8:{
+				"x": 1,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			9:{
+				"x": 2,
+				"y": 5,
+				"kx": 1,
+				"ky": 0,
+			},
+		};
+		let halfLocation3={
+			0:{
+				"x": 9,
+				"y": 0,
+				"kx": 0,
+				"ky": 1,
+			},
+			1:{
+				"x": 0,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			2:{
+				"x": 4,
+				"y": 3,
+				"kx": 1,
+				"ky": 0,
+			},
+			3:{
+				"x": 4,
+				"y": 0,
+				"kx": 0,
+				"ky": 1,
+			},
+			4:{
+				"x": 6,
+				"y": 0,
+				"kx": 1,
+				"ky": 0,
+			},
+			5:{
+				"x": 1,
+				"y": 2,
+				"kx": 0,
+				"ky": 1,
+			},
+			6:{
+				"x": 0,
+				"y": 9,
+				"kx": 1,
+				"ky": 0,
+			},
+			7:{
+				"x": 9,
+				"y": 7,
+				"kx": 1,
+				"ky": 0,
+			},
+			8:{
+				"x": 6,
+				"y": 8,
+				"kx": 1,
+				"ky": 0,
+			},
+			9:{
+				"x": 3,
+				"y": 5,
+				"kx": 1,
+				"ky": 0,
+			},
+		};
 		// 
 		let initialShipsClone = '';
 		// способ расстановки кораблей на игровом поле
@@ -1164,16 +1416,28 @@
 			random() {
 				// скрываем контейнер с кораблями, предназначенными для перетаскивания
 				// на игровое поле
+				//human.cleanField();
 				shipsCollection.hidden = true;
 				buttonLoad.dataset.hidden = true;
+				let r=getRandom(3);
+				//let obj;
+				if(r==1){human.cleanField(); human.locateShip(shoreLocation1);}
+				if(r==2){human.cleanField(); human.locateShip(shoreLocation2);}
+				else {human.cleanField(); human.locateShip(shoreLocation3);}
 				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
 				//human.shoreLocationShips();
-				human.locateShip(shoreLocation);
+				//human.locateShip(obj);
 			},
 			randomHalf(){
+				//human.cleanField();
 				shipsCollection.hidden = true;
 				buttonLoad.dataset.hidden = true;
-				human.locateShip(halfLocation);
+				let r=getRandom(3);
+				console.log(r);
+				if(r==1){human.cleanField(); human.locateShip(halfLocation1);}
+				if(r==2){human.cleanField(); human.locateShip(halfLocation2);}
+				else {human.cleanField(); human.locateShip(halfLocation3);}
+				//human.locateShip(halfLocation3);
 			},
 			/*upload(){
 				shipsCollection.hidden = true;
