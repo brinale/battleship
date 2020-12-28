@@ -49,7 +49,6 @@ function getRating(){
         else {
             try{
                 ratingList=JSON.parse(xhr.responseText);
-                console.log(ratingList);
                 setRating(ratingList);
             }
             catch(err){

@@ -1173,10 +1173,96 @@
 			randomHalf(){
 				shipsCollection.hidden = true;
 				buttonLoad.dataset.hidden = true;
-				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
-				//human.shoreLocationShips();
 				human.locateShip(halfLocation);
 			},
+			/*upload(){
+				shipsCollection.hidden = true;
+				buttonLoad.dataset.hidden = true;
+				let locations;
+				console.log("hello1");
+				// вызов ф-ии рандомно расставляющей корабли для экземпляра игрока
+				//human.shoreLocationShips();
+				input.addEventListener('change', () => {
+					let file = input.files[0];
+					const reader = new FileReader();
+					reader.readAsText(file, 'windows-1251');
+					console.log("hello");
+					reader.onload =()=>{
+						let obj=JSON.parse(reader.result);
+						console.log(obj);
+
+						locations={
+							0:{
+								"x": obj.fourdeck1.x,
+								"y": obj.fourdeck1.y,
+								"kx": obj.fourdeck1.kx,
+								"ky": obj.fourdeck1.ky,
+							},
+							1:{
+								"x":obj.tripledeck1.x,
+								"y":obj.tripledeck1.y,
+								"kx":obj.tripledeck1.kx,
+								"ky":obj.tripledeck1.ky,
+							},
+							2:{
+								"x":obj.tripledeck2.x,
+								"y":obj.tripledeck2.y,
+								"kx":obj.tripledeck2.kx,
+								"ky":obj.tripledeck2.ky,
+							},
+							3:{
+								"x":obj.doubledeck1.x,
+								"y":obj.doubledeck1.y,
+								"kx":obj.doubledeck1.kx,
+								"ky":obj.doubledeck1.ky,
+							},
+							4:{
+								"x":obj.doubledeck2.x,
+								"y":obj.doubledeck2.y,
+								"kx":obj.doubledeck2.kx,
+								"ky":obj.doubledeck2.ky,
+							},
+							5:{
+								"x":obj.doubledeck3.x,
+								"y":obj.doubledeck3.y,
+								"kx":obj.doubledeck3.kx,
+								"ky":obj.doubledeck3.ky,
+							},
+							6:{
+								"x":obj.singledeck1.x,
+								"y":obj.singledeck1.y,
+								"kx":obj.singledeck1.kx,
+								"ky":obj.singledeck1.ky,
+							},
+							7:{
+								"x":obj.singledeck2.x,
+								"y":obj.singledeck2.y,
+								"kx":obj.singledeck2.kx,
+								"ky":obj.singledeck2.ky,
+							},
+							8:{
+								"x":obj.singledeck3.x,
+								"y":obj.singledeck3.y,
+								"kx":obj.singledeck3.kx,
+								"ky":obj.singledeck3.ky,
+							},
+							9:{
+								"x":obj.singledeck4.x,
+								"y":obj.singledeck4.y,
+								"kx":obj.singledeck4.kx,
+								"ky":obj.singledeck4.ky,
+							}
+						};
+						console.log(locations);
+						shipsCollection.hidden = true;
+						buttonLoad.dataset.hidden = true;
+						human.locateShip(locations);
+						const placement = new Placement();
+						placement.setObserver();
+					}
+				});
+				human.locateShip(locations);
+			},*/
 			manually() {
 				// этот код мы рассмотрим, когда будем реализовывать
 				// расстановку кораблей перетаскиванием на игровое поле
@@ -1226,7 +1312,7 @@
 		buttonPlay.dataset.hidden = true;
 		buttonSave.dataset.hidden = true;
 		buttonLoad.dataset.hidden = true;
-		downloadLink.dataset.hidden=true;
+		document.querySelector('.download').dataset.hidden=true;
 		instruction.hidden = true;
 		computerfield.parentElement.hidden = false;
 		toptext.innerHTML = 'Морской бой между эскадрами';
@@ -1271,16 +1357,85 @@
 		window.location.reload();
 	});
 
-	buttonLoad.addEventListener('click', e=>{
-		/*console.log(e.dataTranfer);
-		file=e.dataTransfer.files[0];
-		console.log(file);*/
-		input.addEventListener('change', () => {
-			file = input.files[0];
+	let locations;
+	input.addEventListener('change', () => {
+			let file = input.files[0];
 			const reader = new FileReader();
 			reader.readAsText(file, 'windows-1251');
-			reader.onload =()=>console.log(reader.result);
-		});
+			reader.onload =()=>{
+				let obj=JSON.parse(reader.result);
+				console.log(obj);
+				locations={
+					0:{
+						"x": obj.fourdeck1.x,
+						"y": obj.fourdeck1.y,
+						"kx": obj.fourdeck1.kx,
+						"ky": obj.fourdeck1.ky,
+					},
+					1:{
+						"x":obj.tripledeck1.x,
+						"y":obj.tripledeck1.y,
+						"kx":obj.tripledeck1.kx,
+						"ky":obj.tripledeck1.ky,
+					},
+					2:{
+						"x":obj.tripledeck2.x,
+						"y":obj.tripledeck2.y,
+						"kx":obj.tripledeck2.kx,
+						"ky":obj.tripledeck2.ky,
+					},
+					3:{
+						"x":obj.doubledeck1.x,
+						"y":obj.doubledeck1.y,
+						"kx":obj.doubledeck1.kx,
+						"ky":obj.doubledeck1.ky,
+					},
+					4:{
+						"x":obj.doubledeck2.x,
+						"y":obj.doubledeck2.y,
+						"kx":obj.doubledeck2.kx,
+						"ky":obj.doubledeck2.ky,
+					},
+					5:{
+						"x":obj.doubledeck3.x,
+						"y":obj.doubledeck3.y,
+						"kx":obj.doubledeck3.kx,
+						"ky":obj.doubledeck3.ky,
+					},
+					6:{
+						"x":obj.singledeck1.x,
+						"y":obj.singledeck1.y,
+						"kx":obj.singledeck1.kx,
+						"ky":obj.singledeck1.ky,
+					},
+					7:{
+						"x":obj.singledeck2.x,
+						"y":obj.singledeck2.y,
+						"kx":obj.singledeck2.kx,
+						"ky":obj.singledeck2.ky,
+					},
+					8:{
+						"x":obj.singledeck3.x,
+						"y":obj.singledeck3.y,
+						"kx":obj.singledeck3.kx,
+						"ky":obj.singledeck3.ky,
+					},
+					9:{
+						"x":obj.singledeck4.x,
+						"y":obj.singledeck4.y,
+						"kx":obj.singledeck4.kx,
+						"ky":obj.singledeck4.ky,
+					}
+				};
+				console.log(locations);
+				human.cleanField();
+				shipsCollection.hidden = true;
+				buttonLoad.dataset.hidden = true;
+				human.locateShip(locations);
+				const placement = new Placement();
+				placement.setObserver();
+			}
+		
 	});
 
 	let downloadLink;
